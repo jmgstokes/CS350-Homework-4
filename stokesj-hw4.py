@@ -17,10 +17,10 @@ def lookup_view(request):
     output = ''
     mydict = request.matchdict
     for item in db:
-        val = db['query']
+        value = mydict['query']
 
-        if val in item:
-            output.append[item + "<br/>"]
+        if value in item.split():
+            output += item + "<br/>"
 
     if output != '':
         return Response(output)
@@ -46,5 +46,4 @@ if __name__ == '__main__':
 
         #Serve the wsgi application on localhost port 8080
         server = make_server('0.0.0.0', 8080, app)
-
 server.serve_forever()
