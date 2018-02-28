@@ -18,16 +18,15 @@ def lookup_view(request):
     mydict = request.matchdict
     for item in db:
         value = mydict['query']
+        obj = item.lower()
 
-        if value in item.split():
+        if value.lower() in obj.split():
             output += item + "<br/>"
 
     if output != '':
         return Response(output)
     else:
         return Response("Nothing was found.")
-
-#<br/> used to line break
 
 if __name__ == '__main__':
 
